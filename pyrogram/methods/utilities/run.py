@@ -89,10 +89,10 @@ class Run:
             run(coroutine)
         else:
             if inspect.iscoroutinefunction(self.start):
-                run(self.start(use_qr=use_qr, except_ids=except_ids))
+                run(self.start())
                 run(idle())
                 run(self.stop())
             else:
-                self.start(use_qr=use_qr, except_ids=except_ids)
+                self.start()
                 run(idle())
                 self.stop()
